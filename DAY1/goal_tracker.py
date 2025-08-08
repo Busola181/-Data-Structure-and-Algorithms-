@@ -27,7 +27,7 @@ if st.button("Add Goal"):
     cleaned_goal = new_goal.strip()
     if cleaned_goal and all(cleaned_goal != g["task"] for g in st.session_state.goals):
         st.session_state.goals.append({"task": cleaned_goal, "done": False})
-        st.experimental_rerun()
+        st.rerun()
 
 # ----- Show goals with checkboxes
 st.subheader("Your Goals:")
@@ -43,7 +43,7 @@ if any(g1 != g2 for g1, g2 in zip(st.session_state.goals, updated_goals)):
 # ----- Reset goals
 if st.button("🔁 Reset All Goals"):
     st.session_state.goals = []
-    st.experimental_rerun()
+    st.rerun()
 
 # ----- Footer
 st.markdown("---")
